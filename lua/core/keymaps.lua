@@ -19,7 +19,7 @@ map("v", "∆", ":m '<-2<CR>gv=gv", opts)
 -- Highlight all
 map("n", "<leader>a", "ggVG", opts)
 -- Format/indent all
-map("n", "<leader>fa", "ggVG=<C-o>", opts)
+map("n", "<leader>ia", "ggVG=<C-o>", opts)
 
 -- Go to hyperlink/highlighted
-map("n", "<leader>kg", "<C-]>", opts)
+map("n", "<leader>gh", "<C-]>", opts)

@@ -5,6 +5,7 @@ return {
     "neovim/nvim-lspconfig",
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
+    "folke/neodev.nvim",
   },
   config = function()
     require("mason").setup()
@@ -16,19 +17,21 @@ return {
 
     -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
     require("mason-lspconfig").setup_handlers {
-        -- The first entry (without a key) will be the default handler
-        -- and will be called for each installed server that doesn't have
-        -- a dedicated handler.
-        function (server_name) -- default handler (optional)
-            require("lspconfig")[server_name].setup {}
-        end,
+      -- The first entry (without a key) will be the default handler
+      -- and will be called for each installed server that doesn't have
+      -- a dedicated handler.
+      function(server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {
+          capabilities = capabilities,
+        }
+      end,
     }
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
     vim.keymap.set('n', '<space>d', vim.diagnostic.open_float)
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+    vim.keymap.set('n', '<space>nd', vim.diagnostic.goto_prev)
+    vim.keymap.set('n', '<space>pd', vim.diagnostic.goto_next)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
     -- Use LspAttach autocommand to only map the following keys
@@ -58,9 +61,9 @@ return {
         end, opts)
         vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set({ 'n', 'v' }, '<space>.', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>f', function()
+        vim.keymap.set('n', '<space>fa', function()
           vim.lsp.buf.format { async = true }
         end, opts)
       end,
