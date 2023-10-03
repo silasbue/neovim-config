@@ -10,20 +10,19 @@ return {
     require("mason").setup()
     require("mason-lspconfig").setup()
 
-    local lspconfig = require('lspconfig')
 
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-    local servers = { 'clangd', 'lua_ls' }
-    for _, lsp in ipairs(servers) do
-      lspconfig[lsp].setup {
-        -- on_attach = my_custom_on_attach,
-        capabilities = capabilities,
-      }
-    end
-
+    require("mason-lspconfig").setup_handlers {
+        -- The first entry (without a key) will be the default handler
+        -- and will be called for each installed server that doesn't have
+        -- a dedicated handler.
+        function (server_name) -- default handler (optional)
+            require("lspconfig")[server_name].setup {}
+        end,
+    }
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
