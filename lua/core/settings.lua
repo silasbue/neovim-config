@@ -1,31 +1,34 @@
 local settings = {
-    -- show relative line numbers
-    number = true,
-    relativenumber = true,
-    
-    -- don't wrap lines
-    wrap = false,
+  -- show relative line numbers
+  number = true,
+  relativenumber = true,
 
-    -- always show sign column
-    signcolumn = 'yes',
+  -- use system clipboard
+  clipboard = 'unnamed',
 
-    -- ignore case in search patterns
-    ignorecase = true,
-    smartcase = true,
+  -- don't wrap lines
+  wrap = false,
 
-    -- tab configs
-    tabstop = 2,
-    shiftwidth = 2,
-    expandtab = true,
-    smartindent = true,
+  -- always show sign column
+  signcolumn = 'yes',
 
-    -- show correct colors
-    termguicolors = true,
+  -- ignore case in search patterns
+  ignorecase = true,
+  smartcase = true,
 
-    -- leave space between cursor and bottom + top of page
-    scrolloff = 8,
+  -- tab configs
+  tabstop = 2,
+  shiftwidth = 2,
+  expandtab = true,
+  smartindent = true,
+
+  -- show correct colors
+  termguicolors = true,
+
+  -- leave space between cursor and bottom + top of page
+  scrolloff = 8,
 }
 
 for k, v in pairs(settings) do
-    vim.opt[k] = v
+  vim.opt[k] = v
 end
