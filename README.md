@@ -1,6 +1,8 @@
 # neovim-config
 
-### delete old config
+## installation
+
+### remove old config
 
 ```zsh
 rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
@@ -8,10 +10,14 @@ rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
 
 ### install this config
 
-```zsh
-# ssh
-git clone git@github.com:silasbue/neovim-config.git ~/.config/nvim
+#### ssh
 
-# https
+```zsh
+git clone git@github.com:silasbue/neovim-config.git ~/.config/nvim
+```
+
+#### https
+
+```zsh
 git clone https://github.com/silasbue/neovim-config.git ~/.config/nvim
 ```
