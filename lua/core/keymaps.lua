@@ -23,3 +23,10 @@ map("n", "<leader>ia", "ggVG=<C-o>", opts)
 
 -- Go to hyperlink/highlighted
 map("n", "<leader>gh", "<C-]>", opts)
+
+-- Toggle ZenMode
+map("n", "<leader>z", ":ZenMode<cr>", opts)
+
+
+-- Go to file
+map("n", "<leader>d", "gf", {silent = true})

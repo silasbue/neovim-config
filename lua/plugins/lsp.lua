@@ -29,7 +29,7 @@ return {
 
     -- Global mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    vim.keymap.set('n', '<space>d', vim.diagnostic.open_float)
+    -- vim.keymap.set('n', '<space>d', vim.diagnostic.open_float)
     vim.keymap.set('n', '<space>nd', vim.diagnostic.goto_prev)
     vim.keymap.set('n', '<space>pd', vim.diagnostic.goto_next)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
@@ -42,9 +42,6 @@ return {
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
         -- Don't show error messages as virtual text
-        vim.diagnostic.config({
-          virtual_text = false,
-        })
 
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions

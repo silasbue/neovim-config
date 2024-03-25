@@ -1,14 +1,10 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 
+  dependencies = {
     "nvim-tree/nvim-web-devicons",
     "folke/tokyonight.nvim"
   },
-  config = function()
-    require('lualine').setup {
-      options = {
-        disabled_filetypes = { 'NvimTree' },
-      },
-    }
-  end
+  opts = {
+    disabled_filetypes = { 'NvimTree' },
+  }
 }

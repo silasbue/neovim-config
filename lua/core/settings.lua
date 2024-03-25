@@ -27,6 +27,9 @@ local settings = {
 
   -- leave space between cursor and bottom + top of page
   scrolloff = 8,
+
+  -- show X amount of items in popup menus
+  pumheight = 8,
 }
 
 for k, v in pairs(settings) do
