@@ -1,32 +1,31 @@
-local opts = { noremap = true, silent = true }
-local map = vim.keymap.set
+-- contains global keymaps, plugin specific keymaps are located in their respective files
 
+-- default options:
+-- noremap: make keymaps non-recursive to avoid unintended behaviour when keymaps overlap
+-- silent: don't show any output
+local opts = { noremap = true, silent = true }
 
 -- Set space as leader key
-map("", "<Space>", "", opts)
+vim.keymap.set("", "<Space>", "", opts)
 vim.g.mapleader = " "
 
 -- Save
-map("n", "<leader>s", ":w<cr>", opts)
+vim.keymap.set("n", "<leader>s", ":w<cr>", opts)
 
 -- Move text up and down
-map("n", "‹", ":m .+1<CR>==", opts)
-map("n", "∆", ":m .-2<CR>==", opts)
+vim.keymap.set("n", "‹", ":m .+1<CR>==", opts)
+vim.keymap.set("n", "∆", ":m .-2<CR>==", opts)
 -- For visual mode
-map("v", "‹", ":m '>+1<CR>gv=gv", opts)
-map("v", "∆", ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set("v", "‹", ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set("v", "∆", ":m '<-2<CR>gv=gv", opts)
 
 -- Highlight all
-map("n", "<leader>a", "ggVG", opts)
+vim.keymap.set("n", "<leader>a", "ggVG", opts)
 -- Format/indent all
-map("n", "<leader>ia", "ggVG=<C-o>", opts)
+vim.keymap.set("n", "<leader>ia", "ggVG=<C-o>", opts)
 
 -- Go to hyperlink/highlighted
-map("n", "<leader>gh", "<C-]>", opts)
-
--- Toggle ZenMode
-map("n", "<leader>z", ":ZenMode<cr>", opts)
-
+vim.keymap.set("n", "<leader>gh", "<C-]>", opts)
 
 -- Go to file
-map("n", "<leader>d", "gf", {silent = true})
+vim.keymap.set("n", "<leader>d", "gf", { silent = true })
