@@ -4,6 +4,9 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
     local actions = require("telescope.actions")
+    local width = 0.95
+    local height = 0.95
+
     require('telescope').setup {
       defaults = {
         -- Default configuration for telescope goes here:
@@ -18,30 +21,50 @@ return {
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
           }
-        }
-      },
-      pickers = {
-        -- Default configuration for builtin pickers goes here:
-        -- picker_name = {
-        --   picker_config_key = value,
-        --   ...
-        -- }
-        -- Now the picker_config_key will be applied every time you call this
-        -- builtin picker
-      },
-      extensions = {
-        -- Your extension configuration goes here:
-        -- extension_name = {
-        --   extension_config_key = value,
-        -- }
-        -- please take a look at the readme of the extension you want to configure
-      }
-    }
+        },
 
+        prompt_prefix = " ",
+        selection_caret = " ",
+        layout_strategy = "horizontal",
+        layout_config = {
+          prompt_position = "top",
+          horizontal = {
+            width = width,
+            height = height,
+          },
+          vertical = {
+            width = width,
+            height = height,
+          },
+        },
+      },
+    }
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
     vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+    -- style telescope
+    local colors = require("catppuccin.palettes").get_palette()
+    local TelescopeColor = {
+      TelescopeMatching = { fg = colors.flamingo },
+      TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
+
+      TelescopePromptPrefix = { bg = colors.surface0 },
+      TelescopePromptNormal = { bg = colors.surface0 },
+      TelescopeResultsNormal = { bg = colors.mantle },
+      TelescopePreviewNormal = { bg = colors.mantle },
+      TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
+      TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+      TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
+      TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
+      TelescopeResultsTitle = { fg = colors.mantle },
+      TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
+    }
+
+    for hl, col in pairs(TelescopeColor) do
+      vim.api.nvim_set_hl(0, hl, col)
+    end
   end
 }
