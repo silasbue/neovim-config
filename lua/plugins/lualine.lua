@@ -6,5 +6,20 @@ return {
   },
   opts = {
     disabled_filetypes = { 'NvimTree' },
+    tabline = {
+      lualine_a = {
+        {
+          'buffers',
+          symbols = {
+            alternate_file = '', -- remove icon for alternate file
+          },
+        }
+      },
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = { 'tabs' }
+    },
   }
 }
