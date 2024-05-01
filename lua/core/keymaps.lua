@@ -27,5 +27,7 @@ vim.keymap.set("n", "<leader>ia", "ggVG=<C-o>", opts)
 -- Go to hyperlink/highlighted
 vim.keymap.set("n", "<leader>gh", "<C-]>", opts)
 
--- Go to file
-vim.keymap.set("n", "<leader>d", "gf", { silent = true })
+-- go to next tab
+vim.keymap.set("n", "<c-l>", "gt", opts)
+-- go to previous tab
+vim.keymap.set("n", "<c-h>", "gT", opts)
