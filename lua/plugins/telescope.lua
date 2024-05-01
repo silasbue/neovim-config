@@ -24,8 +24,9 @@ return {
         },
 
         prompt_prefix = " ",
-        selection_caret = " ",
+        selection_caret = "↪ ",
         layout_strategy = "horizontal",
+        sorting_strategy = "ascending",
         layout_config = {
           prompt_position = "top",
           horizontal = {
