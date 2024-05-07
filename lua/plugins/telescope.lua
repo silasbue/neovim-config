@@ -23,8 +23,8 @@ return {
           }
         },
 
-        prompt_prefix = " ",
-        selection_caret = "↪ ",
+        prompt_prefix = " ",
+        selection_caret = " ",
         layout_strategy = "horizontal",
         sorting_strategy = "ascending",
         layout_config = {
