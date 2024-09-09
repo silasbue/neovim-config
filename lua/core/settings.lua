@@ -3,6 +3,8 @@ local settings = {
   number = true,
   relativenumber = true,
 
+  colorcolumn = "80",
+
   -- use system clipboard
   clipboard = 'unnamed',
 

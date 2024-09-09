@@ -3,6 +3,6 @@ return {
   main = "ibl",
   config = function()
     require("ibl").setup()
-    vim.cmd("hi @ibl.scope.char.1 guifg=#037ba3")
+    -- vim.cmd("hi @ibl.scope.char.1 guifg=#037ba3")
   end
 }
